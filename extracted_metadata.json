@@ -1,0 +1,459 @@
+{
+    "database_name": "semantic_catalog_db",
+    "tables": {
+        "customers": {
+            "columns": [
+                {
+                    "name": "customer_id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": false,
+                    "is_primary_key": true,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "first_name",
+                    "data_type": "varchar",
+                    "column_type": "varchar(255)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "last_name",
+                    "data_type": "varchar",
+                    "column_type": "varchar(255)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "email",
+                    "data_type": "varchar",
+                    "column_type": "varchar(255)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "phone",
+                    "data_type": "varchar",
+                    "column_type": "varchar(50)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "address",
+                    "data_type": "text",
+                    "column_type": "text",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                }
+            ],
+            "primary_keys": [
+                "customer_id"
+            ],
+            "foreign_keys": [],
+            "sample_data": [
+                {
+                    "customer_id": 1,
+                    "first_name": "Beth",
+                    "last_name": "Pugh",
+                    "email": "katherinestevenson@example.org",
+                    "phone": "777-295-8921",
+                    "address": "4407 Love Circle Apt. 856\nSusanmouth, PW 55672"
+                },
+                {
+                    "customer_id": 2,
+                    "first_name": "Carol",
+                    "last_name": "Watts",
+                    "email": "michael79@example.org",
+                    "phone": "507.691.3642x89069",
+                    "address": "47192 Jones Forges\nSouth Taylorberg, NM 71142"
+                },
+                {
+                    "customer_id": 3,
+                    "first_name": "Tracey",
+                    "last_name": "Garcia",
+                    "email": "sarias@example.org",
+                    "phone": "001-582-308-5962x181",
+                    "address": "37103 White Crescent Suite 985\nJohnsonview, DC 89197"
+                },
+                {
+                    "customer_id": 4,
+                    "first_name": "Tina",
+                    "last_name": "Sparks",
+                    "email": "tyler30@example.com",
+                    "phone": "001-487-362-5579x26199",
+                    "address": "USNV Burns\nFPO AA 79616"
+                },
+                {
+                    "customer_id": 5,
+                    "first_name": "Dustin",
+                    "last_name": "Flynn",
+                    "email": "schmittpatricia@example.net",
+                    "phone": "372-734-1946",
+                    "address": "Unit 9053 Box 0106\nDPO AA 87085"
+                }
+            ]
+        },
+        "enriched_metadata": {
+            "columns": [
+                {
+                    "name": "id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": false,
+                    "is_primary_key": true,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "object_type",
+                    "data_type": "varchar",
+                    "column_type": "varchar(50)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "object_name",
+                    "data_type": "varchar",
+                    "column_type": "varchar(255)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "parent_table_name",
+                    "data_type": "varchar",
+                    "column_type": "varchar(255)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "technical_metadata",
+                    "data_type": "json",
+                    "column_type": "json",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "semantic_description",
+                    "data_type": "text",
+                    "column_type": "text",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "tags",
+                    "data_type": "json",
+                    "column_type": "json",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "llm_model_used",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "generated_at",
+                    "data_type": "timestamp",
+                    "column_type": "timestamp",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": "DEFAULT_GENERATED"
+                }
+            ],
+            "primary_keys": [
+                "id"
+            ],
+            "foreign_keys": [],
+            "sample_data": []
+        },
+        "order_items": {
+            "columns": [
+                {
+                    "name": "order_item_id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": false,
+                    "is_primary_key": true,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "order_id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "product_id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "quantity",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "unit_price",
+                    "data_type": "decimal",
+                    "column_type": "decimal(10,2)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                }
+            ],
+            "primary_keys": [
+                "order_item_id"
+            ],
+            "foreign_keys": [
+                {
+                    "constraint_name": "order_items_ibfk_1",
+                    "column_name": "order_id",
+                    "references_table": "orders",
+                    "references_column": "order_id"
+                },
+                {
+                    "constraint_name": "order_items_ibfk_2",
+                    "column_name": "product_id",
+                    "references_table": "products",
+                    "references_column": "product_id"
+                }
+            ],
+            "sample_data": [
+                {
+                    "order_item_id": 1,
+                    "order_id": 25,
+                    "product_id": 16,
+                    "quantity": 4,
+                    "unit_price": "413.01"
+                },
+                {
+                    "order_item_id": 2,
+                    "order_id": 25,
+                    "product_id": 44,
+                    "quantity": 3,
+                    "unit_price": "37.13"
+                },
+                {
+                    "order_item_id": 3,
+                    "order_id": 25,
+                    "product_id": 25,
+                    "quantity": 2,
+                    "unit_price": "28.14"
+                },
+                {
+                    "order_item_id": 4,
+                    "order_id": 85,
+                    "product_id": 1,
+                    "quantity": 3,
+                    "unit_price": "356.95"
+                },
+                {
+                    "order_item_id": 5,
+                    "order_id": 85,
+                    "product_id": 2,
+                    "quantity": 2,
+                    "unit_price": "416.09"
+                }
+            ]
+        },
+        "orders": {
+            "columns": [
+                {
+                    "name": "order_id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": false,
+                    "is_primary_key": true,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "customer_id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "order_date",
+                    "data_type": "date",
+                    "column_type": "date",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "total_amount",
+                    "data_type": "decimal",
+                    "column_type": "decimal(10,2)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "status",
+                    "data_type": "varchar",
+                    "column_type": "varchar(50)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                }
+            ],
+            "primary_keys": [
+                "order_id"
+            ],
+            "foreign_keys": [
+                {
+                    "constraint_name": "orders_ibfk_1",
+                    "column_name": "customer_id",
+                    "references_table": "customers",
+                    "references_column": "customer_id"
+                }
+            ],
+            "sample_data": [
+                {
+                    "order_id": 1,
+                    "customer_id": 18,
+                    "order_date": "2025-01-27",
+                    "total_amount": "260.74",
+                    "status": "Shipped"
+                },
+                {
+                    "order_id": 2,
+                    "customer_id": 55,
+                    "order_date": "2025-01-15",
+                    "total_amount": "429.97",
+                    "status": "Delivered"
+                },
+                {
+                    "order_id": 3,
+                    "customer_id": 15,
+                    "order_date": "2023-09-16",
+                    "total_amount": "1473.25",
+                    "status": "Shipped"
+                },
+                {
+                    "order_id": 4,
+                    "customer_id": 35,
+                    "order_date": "2023-08-24",
+                    "total_amount": "2748.18",
+                    "status": "Pending"
+                },
+                {
+                    "order_id": 5,
+                    "customer_id": 17,
+                    "order_date": "2024-10-10",
+                    "total_amount": "4118.91",
+                    "status": "Cancelled"
+                }
+            ]
+        },
+        "products": {
+            "columns": [
+                {
+                    "name": "product_id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": false,
+                    "is_primary_key": true,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "product_name",
+                    "data_type": "varchar",
+                    "column_type": "varchar(255)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "description",
+                    "data_type": "text",
+                    "column_type": "text",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "price",
+                    "data_type": "decimal",
+                    "column_type": "decimal(10,2)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "category",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                }
+            ],
+            "primary_keys": [
+                "product_id"
+            ],
+            "foreign_keys": [],
+            "sample_data": [
+                {
+                    "product_id": 1,
+                    "product_name": "Expanded tangible toolset Tool",
+                    "description": "Money author score everybody fall really easy. Career candidate until issue exist tough machine.",
+                    "price": "356.95",
+                    "category": "Home Goods"
+                },
+                {
+                    "product_id": 2,
+                    "product_name": "Integrated 4thgeneration model Accessory",
+                    "description": "Film add lawyer wall rich him. Stop only talk meeting environmental. Kind image discuss sign on identify.",
+                    "price": "416.09",
+                    "category": "Toys"
+                },
+                {
+                    "product_id": 3,
+                    "product_name": "Fully-configurable national flexibility Gadget",
+                    "description": "Apply save necessary car for industry. Stock account support everyone once number. Outside show ever beautiful.",
+                    "price": "493.46",
+                    "category": "Sports"
+                },
+                {
+                    "product_id": 4,
+                    "product_name": "Grass-roots grid-enabled implementation Device",
+                    "description": "Other series rock change industry note. Head turn PM decade.\nExample town federal spend lay happen hit. Anyone like detail car. Receive including need there talk affect open threat.",
+                    "price": "405.90",
+                    "category": "Toys"
+                },
+                {
+                    "product_id": 5,
+                    "product_name": "Optimized asymmetric parallelism Gadget",
+                    "description": "Amount behavior his design worker together. Paper table international garden.\nYeah vote leader eight. Might both pass. Fine money sport.\nForward within in plant.",
+                    "price": "8.83",
+                    "category": "Books"
+                }
+            ]
+        }
+    }
+}
