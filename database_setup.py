@@ -90,6 +90,20 @@ def create_database_and_tables():
                     llm_model_used VARCHAR(100),
                     generated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
                 )
+            """,
+            "inferred_relationships": """
+                CREATE TABLE IF NOT EXISTS inferred_relationships (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    source_table VARCHAR(100) NOT NULL,
+                    source_column VARCHAR(100) NOT NULL,
+                    target_table VARCHAR(100) NOT NULL,
+                    target_column VARCHAR(100) NOT NULL,
+                    relationship_type VARCHAR(100), -- e.g., 'potential foreign key', 'semantic similarity'
+                    justification TEXT,
+                    llm_model_version VARCHAR(100),
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                    UNIQUE KEY unique_relationship (source_table, source_column, target_table, target_column, llm_model_version)
+                )
             """
         }
 

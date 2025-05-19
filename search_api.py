@@ -264,6 +264,40 @@ def search():
 
     return jsonify({"results": final_search_results})
 
+@app.route('/inferred-relationships', methods=['GET'])
+def get_inferred_relationships():
+    """Fetches all inferred relationships from the database."""
+    conn = None
+    try:
+        conn = mysql.connector.connect(**DB_CONFIG)
+        cursor = conn.cursor(dictionary=True)
+        
+        cursor.execute("""
+            SELECT id, source_table, source_column, target_table, target_column, relationship_type, justification, llm_model_version, created_at
+            FROM inferred_relationships
+            ORDER BY created_at DESC
+        """)
+        
+        relationships = cursor.fetchall()
+        
+        # Convert datetime objects to string for JSON serialization
+        for rel in relationships:
+            if 'created_at' in rel and rel['created_at'] is not None:
+                rel['created_at'] = rel['created_at'].isoformat()
+            
+        return jsonify({"relationships": relationships})
+
+    except mysql.connector.Error as err:
+        print(f"Database error in get_inferred_relationships: {err}")
+        return jsonify({"error": f"Database error: {err}"}), 500
+    except Exception as e:
+        print(f"Unexpected error in get_inferred_relationships: {e}")
+        return jsonify({"error": f"Unexpected error: {e}"}), 500
+    finally:
+        if conn and conn.is_connected():
+            cursor.close()
+            conn.close()
+
 if __name__ == '__main__':
     print("Flask API starting with FAISS and Sentence Transformers...")
     load_and_index_data()

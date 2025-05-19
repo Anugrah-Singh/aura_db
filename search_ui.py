@@ -4,6 +4,7 @@ import json
 
 # API endpoint
 API_URL = "http://127.0.0.1:5001/search"
+INFERRED_REL_API_URL = "http://127.0.0.1:5001/inferred-relationships"
 
 st.set_page_config(layout="wide", page_title="Semantic Data Catalog Search")
 
@@ -63,6 +64,38 @@ if st.button("Search") or search_query:
                 st.error("Error: Could not decode the response from the API. The API might be down or returning invalid JSON.")
             except Exception as e:
                 st.error(f"An unexpected error occurred: {e}")
+
+# --- Display Inferred Relationships ---
+st.sidebar.markdown("--- ") # Separator
+if st.sidebar.button("View Inferred Relationships"):
+    st.subheader("🔮 Inferred Database Relationships")
+    st.markdown("The following potential relationships were inferred by the LLM based on the database schema. These are suggestions and may require validation.")
+    try:
+        with st.spinner("Fetching inferred relationships..."):
+            response = requests.get(INFERRED_REL_API_URL)
+            response.raise_for_status()
+            data = response.json()
+            relationships = data.get("relationships", [])
+
+            if relationships:
+                for rel in relationships:
+                    expander_title = f"**{rel['source_table']}.{rel['source_column']}**  ➡️  **{rel['target_table']}.{rel['target_column']}**"
+                    with st.expander(expander_title):
+                        st.markdown(f"**Relationship Type:** `{rel.get('relationship_type', 'N/A')}`")
+                        st.markdown(f"**Justification:** {rel.get('justification', 'N/A')}")
+                        st.markdown(f"**LLM Version:** `{rel.get('llm_model_version', 'N/A')}`")
+                        st.markdown(f"**Discovered At:** {rel.get('created_at', 'N/A')}")
+            elif "error" in data:
+                st.error(f"API Error fetching relationships: {data['error']}")
+            else:
+                st.info("No inferred relationships found or the API returned an empty list.")
+
+    except requests.exceptions.RequestException as e:
+        st.error(f"Error connecting to the API for inferred relationships: {e}")
+    except json.JSONDecodeError:
+        st.error("Error: Could not decode the response from the inferred relationships API.")
+    except Exception as e:
+        st.error(f"An unexpected error occurred while fetching inferred relationships: {e}")
 
 # Instructions / Info
 st.sidebar.header("About")
