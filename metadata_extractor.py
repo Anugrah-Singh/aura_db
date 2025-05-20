@@ -1,6 +1,7 @@
 import mysql.connector
 import json
-import decimal # Add this import
+import decimal
+import datetime # Added missing import
 
 # --- Database Connection Details (same as database_setup.py) ---
 DB_CONFIG = {
@@ -126,6 +127,19 @@ def extract_metadata():
             conn.close()
             print("Database connection closed.")
 
+def custom_json_serializer(obj):
+    """Custom JSON serializer for objects not serializable by default json code."""
+    if isinstance(obj, decimal.Decimal):
+        return str(obj)  # Convert Decimal to string
+    if isinstance(obj, (datetime.date, datetime.datetime)):
+        return obj.isoformat() # Convert date/datetime to ISO 8601 string
+    if isinstance(obj, bytes):
+        try:
+            return obj.decode('utf-8') # Try to decode bytes to string
+        except UnicodeDecodeError:
+            return obj.hex() # If not decodable, return hex representation
+    raise TypeError(f"Object of type {obj.__class__.__name__} is not JSON serializable")
+
 if __name__ == "__main__":
     print("Starting metadata extraction...")
     extracted_data = extract_metadata()
@@ -133,12 +147,17 @@ if __name__ == "__main__":
     if extracted_data:
         print("\n--- Extracted Metadata (JSON) ---")
         # Pretty print the JSON
-        print(json.dumps(extracted_data, indent=4))
+        print(json.dumps(extracted_data, indent=4, default=custom_json_serializer))
         
         # Optionally, save to a file
-        with open("extracted_metadata.json", "w") as f:
-            json.dump(extracted_data, f, indent=4)
-        print("\nMetadata also saved to extracted_metadata.json")
+        try:
+            with open("extracted_metadata.json", "w") as f:
+                json.dump(extracted_data, f, indent=4, default=custom_json_serializer)
+            print("\nSuccessfully saved metadata to extracted_metadata.json")
+        except IOError as e:
+            print(f"\nError saving metadata to file: {e}")
+        except Exception as e:
+            print(f"\nAn unexpected error occurred while saving to file: {e}")
     else:
         print("Metadata extraction failed.")
 

@@ -172,13 +172,232 @@
                     "is_nullable": true,
                     "is_primary_key": false,
                     "extra": "DEFAULT_GENERATED"
+                },
+                {
+                    "name": "embedding_vector",
+                    "data_type": "blob",
+                    "column_type": "blob",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "embedding_model_version",
+                    "data_type": "varchar",
+                    "column_type": "varchar(255)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
                 }
             ],
             "primary_keys": [
                 "id"
             ],
             "foreign_keys": [],
-            "sample_data": []
+            "sample_data": [
+                {
+                    "id": 1,
+                    "object_type": "table",
+                    "object_name": "customers",
+                    "parent_table_name": null,
+                    "technical_metadata": "{\"columns\": [{\"name\": \"customer_id\", \"extra\": \"auto_increment\", \"data_type\": \"int\", \"column_type\": \"int\", \"is_nullable\": false, \"is_primary_key\": true}, {\"name\": \"first_name\", \"extra\": \"\", \"data_type\": \"varchar\", \"column_type\": \"varchar(255)\", \"is_nullable\": false, \"is_primary_key\": false}, {\"name\": \"last_name\", \"extra\": \"\", \"data_type\": \"varchar\", \"column_type\": \"varchar(255)\", \"is_nullable\": false, \"is_primary_key\": false}, {\"name\": \"email\", \"extra\": \"\", \"data_type\": \"varchar\", \"column_type\": \"varchar(255)\", \"is_nullable\": true, \"is_primary_key\": false}, {\"name\": \"phone\", \"extra\": \"\", \"data_type\": \"varchar\", \"column_type\": \"varchar(50)\", \"is_nullable\": true, \"is_primary_key\": false}, {\"name\": \"address\", \"extra\": \"\", \"data_type\": \"text\", \"column_type\": \"text\", \"is_nullable\": true, \"is_primary_key\": false}], \"sample_data\": [{\"email\": \"katherinestevenson@example.org\", \"phone\": \"777-295-8921\", \"address\": \"4407 Love Circle Apt. 856\\nSusanmouth, PW 55672\", \"last_name\": \"Pugh\", \"first_name\": \"Beth\", \"customer_id\": 1}, {\"email\": \"michael79@example.org\", \"phone\": \"507.691.3642x89069\", \"address\": \"47192 Jones Forges\\nSouth Taylorberg, NM 71142\", \"last_name\": \"Watts\", \"first_name\": \"Carol\", \"customer_id\": 2}, {\"email\": \"sarias@example.org\", \"phone\": \"001-582-308-5962x181\", \"address\": \"37103 White Crescent Suite 985\\nJohnsonview, DC 89197\", \"last_name\": \"Garcia\", \"first_name\": \"Tracey\", \"customer_id\": 3}, {\"email\": \"tyler30@example.com\", \"phone\": \"001-487-362-5579x26199\", \"address\": \"USNV Burns\\nFPO AA 79616\", \"last_name\": \"Sparks\", \"first_name\": \"Tina\", \"customer_id\": 4}, {\"email\": \"schmittpatricia@example.net\", \"phone\": \"372-734-1946\", \"address\": \"Unit 9053 Box 0106\\nDPO AA 87085\", \"last_name\": \"Flynn\", \"first_name\": \"Dustin\", \"customer_id\": 5}], \"foreign_keys\": [], \"primary_keys\": [\"customer_id\"]}",
+                    "semantic_description": "Stores information about individual customers, including contact details and addresses.",
+                    "tags": "[\"customer_info\", \"contact_details\", \"address_data\"]",
+                    "llm_model_used": "gemma-3-4b-it-qat",
+                    "generated_at": "2025-05-19T18:44:40",
+                    "embedding_vector": "9c791bbd6ebdf93a48246e3c3094e53c1c4af1bc06fe3d3d5daf283d3086c03ce0d9e5bc53fbb9bd56bd5d3cebad0f3de27b4e3cedb079bd9716353d5f5a10bd3ff6ba3c0ee0883d6ee781b7346422bcde8da8bcff25813d08fb34bc6c87283cbd22d2bdc642debc381d18bd05fe253d7978d2bce3764fbc2d3ebd3d2329953ccdb7fa3dabb73d3d0fff1c3bf498483c5256cebc21ed3d3d0374c8bc0126803bfc28f4bb54e01dbd9c828fbdb87cee3c0596d43da46cec3c22dba43bcc1c8c3d65a7043db0b2bf3df6a00bbd9592b039aa74083c4db38a3c4dc6f13cd5ec4b3de384a6bce126fbbc799f0abdec34253d194c4b393eff9abd2f874abcdaab443d0d8dc5bc97aa1bbca509d3bc33fe923d2b77eabc3f6304be7920a5bd7150593c5f3648bdee29be3d251eb9bc13d6f9bbdc2fa03b823519bd2fb4e1bc857a633d272f94bd948ef2bce8e4b53c01bdf43c09960abdebf591bd2ad4333d39c5b2bdb0dc92bd5af058bc56381cbcc1c6a83b3c661bbdded737bdb6ce55bd23d7ce3bb8fa733d642e9dbd7141563dd3c6083c1b18ebbb1301263d95573b3da263a63c4082b3bd319242bd23f473bc1c19813df89976bdb20c3d3d046134bd2369e83c2277ccbde80904bd9b6a973d17fd84bd00c70ebcec21943df8e1863ddf649e3b32e142bd6fc83a3dd9b57b3df7542dbd3c72a6bdde83b93c129a913cf0ed42899f2797bc2843873d5f530cbbcf043c3d6c7c0ebd1570f3b980fbeabc0cb2ee3ba48e243790ce8f3dfe010c3d7671eb3ca6ea053d1cc5933d07a0d9bc995ee33decd143bbb7e5b33da67d633c130c64bc10bd0b3dc14d403d68549cbcc96da73df3fdb33ddf99c6bccd3ac73c1d9bd03db29f783d796af9bcbbf37a3d01b475bd7c52183ce352eabcb1565b3d3655f13d9c8780bdfcacd5bde29d5d3a01f53dbdd59108bdc8fe5d3d6ba9943c45c8123ddd6f49bda15c7b3d36b59abdfda8e93c2862103d4028943d08db30bd1b449bbc8530e6bd805ba33dab9f84bcccf86abcb71d6e3c886289bd77280b3c1e42b9bc9efe8ebcf4e3ccbb9bbd943bdd2548bd6334c1bcb0edb9bd773364bcdf9cf4bdc577073d66c2003c82edfdba67176f3dc96ff23d238b183c7c1b4ebdd9df103d71ff97bd05b76fbca84306bd4b835cb97bfd873d48872bbdfc5f2a3db363823d2a99b3bc456a2c3dea04dd3dcb7315bdd03fcdbc8eb591bc1142573ccb86553db7a260bd03365a3d1ba09dbc298e8f0711b08a3c39d137bd9eee91bd1ae5963cb2ada6bd0a60e23cee3980bc2a7f1dbd2dbadebcfee290bd85ae1fbe0f1834bcf63bb5bc92b68e3c413a9ebdc1f6f53d8d364e3d38e5c5bc8ee7c43c2c1f11bd4fc334bd6faf34bd62cdfdbc0bfeb13cab8e8e3b84360ebd37da8f3c1a7814bddae422bd591da3bdbdd0f5bcbbeac5bd80319b3cfb885d3d44eec3bd616e10bd2fce93bc2db37e3dd137863d6148993d33c3b73d5b261b3d76dad93bbca8a9bc8b0e08bd9c1732bd52b916bd0a07763b9e6e0d3ae08252bc258d93bd465990bdf9ab23bdb17e18bd096e62bde0e3803d4bcb0f3df8bf2ebbfb0e4b3d4aa5b5bc4a6695bb7e09953bdfa35e3bd146a23d449ecabb8e126ebd84040a3cb494e6bd9a3408bc7bc625bdb71916bca5f04bbd0e706e3c6b4e38bdc1d463bd238eaf3bcb1b4bbde1f8ebbc96b36cbd8ded5dbc44994d3c4922363d6060043df9a8863d64cf973ce0caa8bb71ee543d1727c43c10c2203d6080b3bd3457a2bcf737353d87c6bdbd2d1738bd890f14bdd9b6c0b2485d36bd209309bdcc61623c00cea73dbe36623d57ae9e3cedbdc33dc30fd33decde8cbc1c68843d17e0ddbcd3eae6bbaebbeabd9742073a8ab0f63d3f8e9d3d44dda23d207390bda7a6633c279cc13d958d45bda1d8233d25df7c3c9630ff3be1e9763d6dc6e63a7163e4bac200a23c3c44803da3d0c3bcba8f1d3c006722bd2aa6c83d5a2658bce9440f3d4f426a3d0a1d0cbd108079bdbf713abc420358bdcdff00bd378a3ebcacbb07bc2bd60c3d1fd30f3ef93cd43ca74b28bc1a3bacbc0861123daef7033dcb3c1cbdd28334bd7451c53d4c138fbc462072bda3bbf5bc8fd8ccbc1158a23ba40ef73d3b0ac3bc153b4bbde05b933d881f28bd724e893b",
+                    "embedding_model_version": "all-MiniLM-L6-v2"
+                },
+                {
+                    "id": 2,
+                    "object_type": "column",
+                    "object_name": "customer_id",
+                    "parent_table_name": "customers",
+                    "technical_metadata": "{\"name\": \"customer_id\", \"extra\": \"auto_increment\", \"data_type\": \"int\", \"column_type\": \"int\", \"is_nullable\": false, \"is_primary_key\": true}",
+                    "semantic_description": "A unique integer identifier assigned to each customer within the database. This column serves as the primary key for the `customers` table, ensuring each customer record is uniquely identifiable.",
+                    "tags": "[\"customer_id\", \"primary_key\", \"integer\", \"identifier\"]",
+                    "llm_model_used": "gemma-3-4b-it-qat",
+                    "generated_at": "2025-05-19T18:44:44",
+                    "embedding_vector": "2c4da0bd7a9c913c5a21b3bd99789cba628f59bd23b52c3d74fbd63d2a9523bdba5af03ca70993bd5343853dbb75af3ca1c6743d2f5696bdbfbe4abdb52a8dbc61eedfbc96575c3cf3e009bd635011bc7be0ebbd87b0323c960509bd786b663d448284bdd205a9bbe698dd3dd923993d5439913b3079dcbceb67b03b22739c3c1e72e53d1b05053d735649bd7d3645bc7e94553d0ee14d3ce817b93cb82bacbbca597abc7579bcbdefb071bd7cc4363df486373df296023d379d12bdd8417e3db31a8ebde8629e3d80ed863cbe2f613d012f02bd45e58a3d017c953c77ddbb385a7919bd4b6693bd53a67abbddaf5e3d6a56513c89ef653d494b743df2f25c3dd0559fbb1c4c8abbf06e56bd62758fbdf5d96e3c05af47bdd8d4313c6f068f3bc90183bdc387393d532289bdac85f7bce59c0d3c69c25eb9910fa23dc5a0833d5f348fbdcd6a943ce10fd73b532152ba93cd3a3ddf3d4ebd7349663d3d6075bd840f96bd652ec73c808981bba037a43c5a64603d9e2575bcfb75853c2d2cd5bbb72e0a3d893fa0bdd1e5333de2daf8b997db8ebcea9ac03b6db6a03b20f6813d931a90bdac97e2bde94a833dc9a6c2bc194873bc9340b5bcbbe962bd27fdd9bcf1b12cbd04cdc3bcd77565bc7b75bcbc3f5229bd21b69f3d09982e3ddeb02fbd8e8189bce4e9943cba19bebc3b3e2dbd110b5bbdbac1743d6354bcbb1827af06366616bda0e9c63d475983bcef8ad1bcc5f5483cf8e94e3cd9ed3ebdc640803b4ce721bdade3113ddb9147bdece2f53c265ff93ca624863dff50ed3bae8d083ee14405bd6ad5bd3dd813793de5a1bebda2958e3dffc9303d33bbed396e368f3d3d84673d9e876d3d792bb53c2c7bf53c099aa83d0f369e3c8157913d3ac906bdc52c24bdfd03aa3b57e5003d222d223d3b8486bcc1ba3fbda077b73c93e3c8bc6cdc59bd899b753d044f313d8047213c0f886bbdc4ec8f3d6a25dabb73ef063ebae517bd3b1b513dfeac83bc9873dabce04f273c89e17f3d0e9d9fbcfb5f893c6479033d6f589ebde24e87bc5a31aebcb91876bc753d06bd6a42d7bca199093d6aee6c3c5f0db33cf2ed6f3c209f90bded53fb3d2c0c2a3b0b4ca4bc444a033d43d59a3cdbfd4c3c648405be0378c8bcf34843bd1cbbdabc8459d13c7988283dc043adbdf2638a3d826f06bdd49db8bc8e2963bd8879af3ced86413c793458bd436869bd3bae7fbd3857523d9bd4a33d4f9e91bcec5b853da3a0dc3cfd452189d21f2ebd44a2053caca582bd4fdb0a3d19e60dbd77e83dbc1df798bc903bb6bd9735aebd3adc20bdb7f401bdc4e9eebcde2b1a3d1b3df5bb1b5e723c5274e93cff3773bdb359e1ba3c6ceabcb093483c09dbaa3c0551713c6d05e8bc873f713d03371a3d2881933ce5547ebdbcf06dbd9d1f30bd36f76cbd7068c3bbebcb1abdb1f8eebc38f08ebdf20601bd401792bd9f9cf23c49e825bdf4fc85bc780dd03d31c846bae6b015bc58950b3d1adab53d799805bc5ab0913c3390963d70672b3c90fecbbcf7ebdebcee7c75bdde7a26bd805e443cc81af43c4d34663bb83fa03dbefec7bc895b833d2081a53d7d8c683dd17a9f3dac7d573bf1751c3ddc7a2c3e3a5c08bd918be2bd6270873c208042bd9e9832bdf5fc0bbdd4081a3c03f486bcac4f183b519759baac816bbdb5a5d1bd9b0394bdb7a3f6bcb52f87bd9e83153b52d7d83bb19a823b8bf38e3b271d033dcad689bd7ba5e4bdd8d6fe3db57fa8bb80aa09bd919e063ce74efcbc95ba333ce65b60be9b0e9a3cf6478bbd74cbe0b25d4595bd0020ec3b5acb8fbd40f484bdb6fb743de5f6babdf05b6cbc088b053c61909cbbb8d882b8ed4eb03d9e2a303bcaf316bd1d5df3bb189e663d9f689c3c02ba193d6988f7bc9fc199bc3aaf4b3ddb3a043d64533b3d4d8808bc740ba8bd73d05e3d217ab6bc9c2f293cac7b9a3d374d123def332d3c15a40dbc9f8e10ba6c89db3d6def81ba4d269fbb4b31183ef796c7bce9ca423cd27835bd38da6fbdf1b8babc0abf01bcf8acd2bc7fbeab3c26fdcdbca8a7633d07720bbdff29693da6f525bd4c98b93d04069fbd5a1f40bdbe74a63db67d8d3c1b3d96bc8f87373dfc12b7bc40eb003cc182c73df897e0bba3d7163c72dda43deaec07bd7d3e13bd",
+                    "embedding_model_version": "all-MiniLM-L6-v2"
+                },
+                {
+                    "id": 3,
+                    "object_type": "column",
+                    "object_name": "first_name",
+                    "parent_table_name": "customers",
+                    "technical_metadata": "{\"name\": \"first_name\", \"extra\": \"\", \"data_type\": \"varchar\", \"column_type\": \"varchar(255)\", \"is_nullable\": false, \"is_primary_key\": false}",
+                    "semantic_description": "Stores the first name of a customer. It is a required field for each customer record.",
+                    "tags": "[\"Customer Name\", \"First Name\", \"Personal Information\"]",
+                    "llm_model_used": "gemma-3-4b-it-qat",
+                    "generated_at": "2025-05-19T18:44:46",
+                    "embedding_vector": "e03fadbd525ba03c97991ebd8723e3bcbc00c8bdebd72f3d9177353d4b8365bc43f8ef3c2609d1bdfe8e5b3dd0c286bc57900f3ddad782bd7a32eabc46b3d4bb7d3fc93b673981bbe1f041bc9915d03b3121e9bc74575b3da1095ebd0a17d8bce953a2bd6d3fc0bc545903bd9e21c63dfb6fa2bb734e2cbde3f9553d2f9c83bc033c1c3e8e2a943dac58743dd41b57bcfbc1edbc632b563d4c7499bcd9133e3c450ee7bc5fb3d2bd02442abde937303de70d093bbb4cb73c0110383df7cc353dd262093dc639a73dcc499d3bddab7d3ca68aee3c68dea03d2e710c3b5667843d39ade73cfc2e46bcc4ecafbd483d6e3d45d7b1bdf2b21c3c3935913c3d2b863dca853cbc85dcedbb464c23bdbe8c22bd97158e3ca02ea6bdb0ae82bc3179183d6b7e5bbdfb386a3de9f4c9bd74a4d73c0fab1cbdcd040f3ca8251c3cff93183c2daf6bbdfd8faa3bdd3a8bbb7922f3bae24988bd1b6d023d8fcbd8bb2a2265bdc451c1bd112f9bbbc4ed11bc81cb2ebdefc2913c0340e1bcf9fe27bc49b8af3c1ea51d3cbccab7bc63331c3d089c2bbcbf6008bd4d2858badb52ac3d57aac33d5eb72cbd8cc3f4bd5f00d13cffcd30bc9c67813ca4f64d3df2cd5ebc6877d83c30c00bbd7a41e8bc9b37b33b2f2fcb3b66a081bdb05f1a3db12ebc3cee5ae6bcb9318dbda626e33c6916d1bc21854ebd0a86cbbd71ad543b4623303dc40f9b890be63fbc8c08263e5a56bcbc06fa563c7f9f9bbc4687ab3cdf1e06bdd7ce913dda83d8bcf7c01c3d82156f3c9fb382bc5921603d1186bfbc3f5d79bdbf17d13d4a6e70bd905f9b3c8e4178bc5b3d7dbc5bed0d3db23fa03c25bbaa3a9607c23d67d1c73c4af4963c3c2e663df1665f3d59c5b03d17d3a03b53ce3b3da6359dbdec70423d0c4484bc48dee43dcff9d73da8351a3d783ba1bde655a03acfaf33bdeb287d3c7bc7883dd451183db444643d391495bd1bbc99bc20fe343b0495a93da3494f3d65498b3de9a9a53c6d4e23bdcbb8a6bce6e0b33d498c69bbc0cd353cacd66c3de3bbd6bd814636bd0e1099bdede536bc87807dbd3bee04bdac6a8b3d5c2725bc410620bde8b8d33c2dc3b1bd9ec79a3d81a23ebdc127463c11c3b0bce8b33a3cc477f73c1755afbbd8dc503dd2003abdb67db8bc494a623c91211a3dc98016bd02ec3b3cd1e71bbd89b4ca3d5c215abd0e65ba3ce184ee3d861383bce0567cbdffb148bd9fd0503dc5ff863d623657bd8f82c73d7a9f693cd2ff28094950bc3b191a8abd0bb6d8bc9fec0b3d224dbabc6fa4d8bc79ce1abc90e296bd550138bbd0e7143cc42db1bc43c44bbdfa5529bdd4959bbd6409593db9c7733da94530bd6d8720bd35e79dbce66fcd3cc26bd23cbc0359bd6ad7d8bdda0b3b3d7bcf5ebce57b7bbb6b7adfbbeb4c9fbd030d96bd3658b3bcaf3b8ebdaf3520bdeb6b0abc6b7021bc9446e1bd05f992bd8f02833c69bf81bb935e383c8e8ac93d79f2e93c6b729e3dc5ca02bb9fa31d3d9d2616bd47378dbd73abdf3ba48e12bd14582d3d781becbcae4dfbbd67a268bde175a6bd41c138bd47c1d5bc9d40463dfc012d3c0ce0593d671d2a3d72ea5abccf8b843dadff403df233c73be3e3ab3d7aaf40bd7601dabdd341083d87488abcc85c2cbc55de81bd2b815fbddf7eebbc77d5283d1405e2bb7e1a97bd70abadbc7d11bcbc87b7f5bc7e4f13bd9f08a9bcb6d73dbbee92c43c213668bcba1bc33d14b87b3c868ac0bdd08fde3d57ff1fbc335747bce7aa06bd261b36bcfe43b43c887c4dbd3a9580baafd202be81e0b5b2a111c0bdee1933bc4936a73c6f664e3db173643d4fa52bbb5d899b3d3752353d877c22bc8075dabb0038c53c8a74363ba843c9bd2499b5bcf764903dba54393d57fbbd3d5f6d5f3b2cfc3c3a191ed03dee6444bd3d18b43cd9d1b7bc7b261bbd452d6d3da4531abd3236173d3e1a493c18a4603dd0b1a1bc129cc53c5948393d739e163ed76039bb09ddf03c41ee0d3e874a87bc84b3cd3a147f4e3ca21b343c0d3feabc8e80fb3c62408abb92155a3ccf7fff3c0f3c8b3db48b71bc1bff1f3df181d63b0ca4d3ba98d90abd946402bd67317e3dc8cde93c12b4babd93d1863cdb4a733dc922003d8e2c6a3d55e8adbdc0ce37bd4dd1f13d293e6f3c1f3880bc",
+                    "embedding_model_version": "all-MiniLM-L6-v2"
+                },
+                {
+                    "id": 4,
+                    "object_type": "column",
+                    "object_name": "last_name",
+                    "parent_table_name": "customers",
+                    "technical_metadata": "{\"name\": \"last_name\", \"extra\": \"\", \"data_type\": \"varchar\", \"column_type\": \"varchar(255)\", \"is_nullable\": false, \"is_primary_key\": false}",
+                    "semantic_description": "Represents the last name of a customer. It is a required field for each customer record.",
+                    "tags": "[\"lastname\", \"customer\", \"name\", \"identifier\"]",
+                    "llm_model_used": "gemma-3-4b-it-qat",
+                    "generated_at": "2025-05-19T18:44:48",
+                    "embedding_vector": "694a94bd590a1d3da4d21ebd45266dbd3dd18abd036bc13c88c2433d657969bc085e8a3d51e3ecbd72bc5b3d6e2693bc73eb4b3d1a3b50bd1fc970bd0e2d8f3cf23d2bbc18c34fbda99110bd3270983cacef03bbf657913df43575bd577de5bba83096bd3e63073d8bbdb0bc2ec6d23d614961bc516815bcc253283c2c71173dc713143ebea9463d78fa493d100509bd8ab90fbdbb0e133dd97aa03c1e00683ce0b580bc562dfcbd20206bbc0f828e3d35fbc8bba1ae1d3d29afb6bbed3f1a3a5f67d6bbb5f4ee3db98900bc41437d3c7f619fbb77628a3dcf13843c4122813b735f173bd2d10ebd56909abd14d65f3db14184bd2549373d5fe3d53c4388bf3d4550dc3b38639cbca9ed83bda97ca5bdb1aec9bc4f5689bd0970883c4bebdabb94ef8fbd08d4443c6775c4bd48a5123b3e4203bdeb8fcd3c137d243dcd92bdbcea5119bd48bb8c3cc190ebbce006bc3bf75f98bc9428213c35100bbd7d52a6bdc84d9cbd2513133c57b9f03c7e8c6bbddd1d0a3d0a30933c693f953b2e50cd3c0995f53c742038bc5a993cbbbfc9153c13b12cbd8a68a0bc50a16c3db314583da660c0bcf64301be6559ea3c0242fa3bfeedb93c58c817b8964f0dbca2085dbcfd7c90bdc2e012bd1ad0edbc0c611dbcd0d625bd85716e3c5f0c653d195d0bbdd391a4bd6bcd813c139897bd35bbb0bde33b8cbdf7db0a3cca58603d4705aa896d2204bd20620d3ec25018bcc85c4abc1646a33c3d34b33ca40143bd2f15493d6784a9bc77d0233d9ef7e23cded6d7bbc02f723d6b34efbbafdc36bd5dd3b03d599939bd5d1dd93c356f17bd032288bc67c9d63c4a77233d62aeb93a458aab3d4b3bc9ba67e1703dd54f1d3d99d3703ddf404c3d48d1803c226fb83dbeab34bd7ff72f3dc4b61bbdad8aba3d497eb63d91dbea3c2569d1bda92b223c09aecfbb05d4573c9a5fcc3caf1b633c9b2d3b3d1c0c8cbd66321d3c619c323d5b358a3da7b0c03cd96fa33d4a708b3b70ca8dbd503ec43c6c5e703d8bf704bb1bc8b73cd52aff3c8abe2fbd870b84bd172caabd7eb0eebb0e1544bdc1deb6bc4157763d80ec4ebc52d2fdbbc7734f3c4e0546bd82d1f13de38d07bd40a7a33cd1a74e3beb3a103b99b24d3d9fc5fbbcc011f23ac0643bbd07d2253c2bf1873cc90ba63db3fc8bbd631a323dca8d82bdf4cb413d558f72bc18fd3d3d423dcd3dea280dbcfe49c4bd26627ebdb75f473d3d26633dd042a5bd701de93ddc1a9b3b29031f09cd57e7bc266c1fbccd233abd2df8203d26da8abc3e2c70bd9a7b7d3cdb3f6ebdac21363c0d2e253d13f8963ca7084dbd21d31abddeb5a0bde297d03c72d81d3d30ba88bd473618bd72d81ebd04ca203d30ced63cf7a396bcd299b7bd85420d3d6b03a43b1193f93c086f143ce3edc5bd4d7535bd7f2e28bd1db88bbc49b893bdcd86aabb8f3a4d3ccfded0bd081f85bdc78f773d2e3db7bca83bf6bb11c8703dec17213d1747653d47aa263d5221bc3d0b3bf8bcce580ebd493afe3bb08779bd46a8053da9d3b3bc5597e1bdb0c86bbd1fc55ebd23e9ec3c000c7abdb7eb3a3db9fd24bd3584963d0aef5d3d4df3b0bc1254cf3da3301c3d2319523de4769b3dd58796bc48919cbd747c743c93a307bd2ed955bc8fa88fbdf92727bdcede16bd94861abb9a5baa3c3a445dbd4f583bbd310aebbb7213e4bc826481bdb81e06bb37b88fbcbb9682bc499bedbcffc4053e312b47bc169307be0063563da310bf3cb65a87bc1500afbc8fd4713c8811b93cc111a1bd2174013da7a004be333abab29c2296bd093e1bbc84a7bcbb085f20bd185fa83dccb9cabcc761653db7294dbc700f1bbc3c643b3bacd98b3db0e840bc7fa903be347020bd6dd3923d2b19093d10e14f3dfb17533c51c3813c58b4a93d43d4f6bc10ba423c50d6fdbc7be892bc1d6a933ccf9c743b2c5a443d9e684a3d2982473d3e3d68bd7921013ddef3813d8ebd153eab1befbc677f3cbd8cd2123e873e2c3b14ff8cbce039913c651d633dd50e23bd005153bcb5850abd9235403b6642413d1e28893ddea090bc5e8c943dda4abfbcbb0173bcc9a842bcd2935cbd4230313d5651853dbb55cbbd63414dbc5ed5943dcee30e3d0202683d3e099cbd2aa79a3c6ebae53d95efb73ca783e8bc",
+                    "embedding_model_version": "all-MiniLM-L6-v2"
+                },
+                {
+                    "id": 5,
+                    "object_type": "column",
+                    "object_name": "email",
+                    "parent_table_name": "customers",
+                    "technical_metadata": "{\"name\": \"email\", \"extra\": \"\", \"data_type\": \"varchar\", \"column_type\": \"varchar(255)\", \"is_nullable\": true, \"is_primary_key\": false}",
+                    "semantic_description": "Stores the email address associated with a customer record. It is a string field capable of holding up to 255 characters and can be empty (null).",
+                    "tags": "[\"email\", \"contact\", \"customer\", \"address\"]",
+                    "llm_model_used": "gemma-3-4b-it-qat",
+                    "generated_at": "2025-05-19T18:44:50",
+                    "embedding_vector": "a4ed2dbd5831bc3cb4122bbd3baea9bb787c5ebb6fcd2b3d8ed86d3d88eeb53cddc7c83df8f193bda4bd143d4eb97f3c7ef3973c8800bbbd5a7dd9bc3133953d05e083bdad4e7cbd266c21bdad46073db16a83bc09c2023cbdfc93bc8d2bc23c460688bd3b9ab13ccc116ebc3a940d3dc06064bdbe0b27bca082883d749bd6bc9161cc3df2a5f73cea32fb3c93501b3dcdb7623bc838e53d891a07bcafb436bd4c8c58bd7a51b1bcc6bb4ebdceee9f3d29b02b3d440b933da848853ccf77833c2c5225bd0f01cc3b42bdfa3c62ce1a3cc571a9bbb0f3b23d401e623cb656cd3c64ffb5bcd2f605bcb04ca7bdc786b73d92f928bb7321a93bd877233d8f23edba82f7b0bcab29cebd9ca049bdf78a30bd411ad8bc73cea9bd9a49fabd5a81dd3ce980fcbde5cb073e38d11bbd5654993d8767c8bb6af4febc7dea673c02dc0c3ec0964dbd113cf03bf70f4e3ccabc8ebc8b24ab3cf2b2e83c19ddab3c06698cbc81a089bde76f433de0a3bcbc20339ebc06673bbd69ff53bbc78432bd000cf43cbe1743bcaba9abbcbfdb30bda84f223defb8863d03e1943d6642123dc661023da6b83bbd8c8f6abd4618ef3b0fed193deadc29bd7ffbfeb92ea03e3d369ba7bb22f28cbdbad80b3ce67c383da4a9aebc5223a5bdb4bbb43df4e8013d44a9413dae8c85bd97ca9bbc7a3efcbcb88732bdd66af8bda6c0a33958be7b3d4b2d28891f8862bc106bc73d063d9cbc4af9f638b86962bd6ed3e43b901786bc8577c63d7c395bbcfa7d063caa3b61bd6172413c6f45c53d36bb203d24f16bbdd165843d2e6d76bb4fd2683d08b7253dbfa290bd27dceb3c4519583d1643993cd65e973d92aca23d2fd38f3b8f94293d66ac733dcb7accbc1c24b03b47e2b4bc34c91cbc766640bb52a52d3dbf1b0d3e03779f3d6f2179bb4f6337bd22df123d979222bc683c263c871a2a3d5b02813d3a3f1a3c2206aabd625b89bc18b37c3d5406ef3c64090ebaa6f2203d5a0ab33d0a5b0bbd2ef782bd6973113d79af00bbde0bf03b7b60713d5894dbbd3f8568bce9d417bd281322bd757da73cb4de3d3db74907bd5360753cfc7bebbca3a212bccdd620be587cc2bb2fed35bd1e4ba33da5b586bdbdcefa3cdabf503d2648f0bdfa014abdea506cbdb70c5cbd3452ffbb93a82b3daa82ef3c4516d8bbf8bb38bd2ef3663dd6248abd77e9b8bc3201943dc33d8b3b36abe0bc7d3317bd6e82423cc5075dbd3611d0bd0d82553deee38f3d5a9bcd06ec59343d843b71bd6e8312be4f5f253c3ae8c4bdb32899398f06d23d7b780c3c73474dbd5fb7febcebad63bd475d30bae2bb3dbdb9da383cf0c84fbbc66b123d9bf740bbb1fc63bd470efabc4949cf3c748aa8bc438530bddcfadf3bab6b053c52818fbb059fa8bbbb12013be3df88bd6c8df5bc519270bd18c6493cc7a086bdd6ad0ebbba5850bc5ba6dfbd99e1cabd4ba9f43c131c25bb337fae3d9ac03c3db781623dc782ed3ddd716b3d5b6b433d62fd3c3c5c513ebbae6d07bde832223dbf65423da6398d3c2f2063bd117a11bd9487153ce74e003d02331cbd62c82e3dfd70adbcdf32e63c399a663d40f686bd917abbbcacda603b34b4603cdacba83d97e10abdb6c0a7bcaadc2d3cc0df2a3cd4f54dbd0125ccbd5212153dafd58abd9c702abc801cd9bc5c284dbda02cdb3cb7cd64bd01c002bb7f4d16bd374e31baa801f93c99ce363bf3158dbc54ea173da4325f3c95e294bda6d56db9c84e0abc763a4f3dfef09cbbdbd5803d0f524f3d30c2a3bdd03656bd804bbabd1b3ae9b20fa98fbda06e923b5cb7863dc49b0a3ccd80a93bb8499d3a1246ca3da0218a3da9e58e3dddb5d83c1250f53bcc8c7fbcd8d2ecbd1b4b73bc08db613d46dc893d3b3f8d3d5a5f9abdff04d23ce562c13d7437d9bce303c93c77f73bbd68e2aebd57105a3d0062d8bcae52443ddaa1383da632e03c8ff749bd10a0b03dddb5573ccd41cf3c59069dbc350552bd6ea91b3ebedf363b25ee9abd427b4ebdf240353a22a9adbca8b4b3bc5578c6bbd4353dbd31d4d53c95238b3c005c2e3b56eb63bca01d4ebc00a0813bb5571dbdd03cfa3b9fc7c1bcce658c3db9dd93bddebbabbcce1f153d1c82d5bb0c9d663d7e3549bdcc786dbdac06a23d58906dbd9b4881bc",
+                    "embedding_model_version": "all-MiniLM-L6-v2"
+                }
+            ]
+        },
+        "inferred_relationships": {
+            "columns": [
+                {
+                    "name": "id",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": false,
+                    "is_primary_key": true,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "source_table",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "source_column",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "target_table",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "target_column",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": false,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "relationship_type",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "justification",
+                    "data_type": "text",
+                    "column_type": "text",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "llm_model_version",
+                    "data_type": "varchar",
+                    "column_type": "varchar(100)",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
+                },
+                {
+                    "name": "created_at",
+                    "data_type": "timestamp",
+                    "column_type": "timestamp",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": "DEFAULT_GENERATED"
+                }
+            ],
+            "primary_keys": [
+                "id"
+            ],
+            "foreign_keys": [],
+            "sample_data": [
+                {
+                    "id": 1,
+                    "source_table": "enriched_metadata",
+                    "source_column": "parent_table_name",
+                    "target_table": "orders",
+                    "target_column": "order_id",
+                    "relationship_type": "potential foreign key: enriched_metadata.parent_table_name -> orders.order_id",
+                    "justification": "The `parent_table_name` column in `enriched_metadata` likely refers to the table containing order information, and `order_id` is a primary key in the `orders` table.",
+                    "llm_model_version": "gemma-3-4b-it-qat",
+                    "created_at": "2025-05-20T00:53:32"
+                },
+                {
+                    "id": 2,
+                    "source_table": "enriched_metadata",
+                    "source_column": "parent_table_name",
+                    "target_table": "products",
+                    "target_column": "product_id",
+                    "relationship_type": "potential foreign key: enriched_metadata.parent_table_name -> products.product_id",
+                    "justification": "Similar to orders, `enriched_metadata.parent_table_name` likely refers to the table containing product information and `product_id` is a primary key in the `products` table.",
+                    "llm_model_version": "gemma-3-4b-it-qat",
+                    "created_at": "2025-05-20T00:53:32"
+                },
+                {
+                    "id": 3,
+                    "source_table": "enriched_metadata",
+                    "source_column": "parent_table_name",
+                    "target_table": "order_items",
+                    "target_column": "order_item_id",
+                    "relationship_type": "potential foreign key: enriched_metadata.parent_table_name -> order_items.order_item_id",
+                    "justification": "Similar to orders and products, `enriched_metadata.parent_table_name` likely refers to the table containing order item information and `order_item_id` is a primary key in the `order_items` table.",
+                    "llm_model_version": "gemma-3-4b-it-qat",
+                    "created_at": "2025-05-20T00:53:32"
+                },
+                {
+                    "id": 4,
+                    "source_table": "orders",
+                    "source_column": "customer_id",
+                    "target_table": "customers",
+                    "target_column": "customer_id",
+                    "relationship_type": "foreign key: Orders.customer_id -> Customers.customer_id",
+                    "justification": "This is an explicitly defined foreign key relationship.",
+                    "llm_model_version": "gemma-3-4b-it-qat",
+                    "created_at": "2025-05-20T00:53:32"
+                },
+                {
+                    "id": 5,
+                    "source_table": "order_items",
+                    "source_column": "order_id",
+                    "target_table": "orders",
+                    "target_column": "order_id",
+                    "relationship_type": "foreign key: Order_Items.order_id -> Orders.order_id",
+                    "justification": "This is an explicitly defined foreign key relationship.",
+                    "llm_model_version": "gemma-3-4b-it-qat",
+                    "created_at": "2025-05-20T00:53:32"
+                }
+            ]
         },
         "order_items": {
             "columns": [

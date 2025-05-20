@@ -202,7 +202,7 @@ def search():
                 initial_search_results.append(result_item)
 
     # 3. LLM Re-ranking (if enabled and results exist)
-    final_search_results = initial_search_results
+    final_search_results = initial_search_results # Initialize with FAISS results
     if llm_reranker and initial_search_results:
         items_for_reranking_str = ""
         for item in initial_search_results:
@@ -241,15 +241,17 @@ def search():
                 if parsed_ids:
                     original_results_map = {item['id']: item for item in initial_search_results}
                     reranked_results_temp = []
-                    processed_in_reranking = set()
+                    ids_added_to_final_list = set() # Tracks IDs added to the final list to ensure uniqueness
 
+                    # Add items based on LLM's ranked order, ensuring uniqueness
                     for item_id in parsed_ids:
-                        if item_id in original_results_map:
+                        if item_id in original_results_map and item_id not in ids_added_to_final_list:
                             reranked_results_temp.append(original_results_map[item_id])
-                            processed_in_reranking.add(item_id)
+                            ids_added_to_final_list.add(item_id)
                     
+                    # Add any remaining items from the initial search that weren't included (e.g. not in LLM list or were duplicates from LLM)
                     for item in initial_search_results:
-                        if item['id'] not in processed_in_reranking:
+                        if item['id'] not in ids_added_to_final_list:
                             reranked_results_temp.append(item)
                     
                     final_search_results = reranked_results_temp
@@ -262,7 +264,23 @@ def search():
         else:
             print("No valid items to send for LLM re-ranking. Using original FAISS order.")
 
-    return jsonify({"results": final_search_results})
+    # Deduplicate final_search_results based on (object_type, object_name, parent_table_name)
+    deduplicated_results = []
+    seen_entities = set()
+    for item in final_search_results:
+        object_type = item.get('object_type')
+        object_name = item.get('object_name')
+        # Handle cases where parent_table_name might be None or missing for tables
+        parent_table_name = item.get('parent_table_name', None) 
+        
+        # Create a unique key for the database entity
+        entity_key = (object_type, object_name, parent_table_name)
+        
+        if entity_key not in seen_entities:
+            deduplicated_results.append(item)
+            seen_entities.add(entity_key)
+            
+    return jsonify({"results": deduplicated_results})
 
 @app.route('/inferred-relationships', methods=['GET'])
 def get_inferred_relationships():
@@ -275,6 +293,8 @@ def get_inferred_relationships():
         cursor.execute("""
             SELECT id, source_table, source_column, target_table, target_column, relationship_type, justification, llm_model_version, created_at
             FROM inferred_relationships
+            WHERE source_table NOT IN ('enriched_metadata', 'inferred_relationships')
+              AND target_table NOT IN ('enriched_metadata', 'inferred_relationships')
             ORDER BY created_at DESC
         """)
         

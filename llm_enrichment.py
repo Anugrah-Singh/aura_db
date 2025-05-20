@@ -143,6 +143,9 @@ def store_enriched_metadata(object_type, object_name, parent_table_name, tech_me
 
 def process_table_metadata(llm, table_name, table_data):
     """Generates and stores enriched metadata for a single table."""
+    if table_name in ['enriched_metadata', 'inferred_relationships']:
+        print(f"Skipping LLM enrichment for metadata table: {table_name}")
+        return
     print(f"\nProcessing table: {table_name}...")
     
     column_details_for_prompt = []
@@ -186,6 +189,9 @@ def process_table_metadata(llm, table_name, table_data):
 def process_column_metadata(llm, table_name, column_data, all_column_names, table_sample_data):
     """Generates and stores enriched metadata for a single column."""
     column_name = column_data.get('name', 'N/A')
+    if column_name == 'embedding_vector':
+        print(f"Skipping LLM enrichment for embedding column: {table_name}.{column_name}")
+        return
     print(f"  Processing column: {table_name}.{column_name}...")
 
     sample_column_values = []
