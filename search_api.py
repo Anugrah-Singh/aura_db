@@ -12,7 +12,7 @@ from langchain_core.output_parsers import StrOutputParser
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',      # Your MySQL username
-    'password': 'Sql@#&50490', # Your MySQL password
+    'password': '', # Your MySQL password
     'database': 'semantic_catalog_db'
 }
 

@@ -9,7 +9,7 @@ import re
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',
-    'password': 'Sql@#&50490',
+    'password': '',
     'database': 'semantic_catalog_db'
 }
 
