@@ -7,7 +7,7 @@ from datetime import datetime
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',      # Replace with your MySQL username
-    'password': 'Sql@#&50490', # Replace with your MySQL password
+    'password': '', # Replace with your MySQL password
     'database': 'semantic_catalog_db'
 }
 

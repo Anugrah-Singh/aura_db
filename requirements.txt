@@ -1,0 +1,10 @@
+mysql-connector-python
+langchain
+langchain-openai
+sentence-transformers
+faiss-cpu
+flask
+streamlit
+numpy
+faker
+requests
