@@ -12,7 +12,7 @@ from langchain_core.output_parsers import StrOutputParser
 DB_CONFIG = {
     'host': 'localhost',
     'user': 'root',      # Your MySQL username
-    'password': '', # Your MySQL password
+    'password': 'Sql@#&50490', # Your MySQL password
     'database': 'semantic_catalog_db'
 }
 
@@ -96,11 +96,16 @@ def load_and_index_data():
         cursor = conn.cursor(dictionary=True)
         
         # Fetch items that have an embedding_vector and the correct model version
-        cursor.execute("""
+        # AND are not metadata tables/columns themselves
+        query = """
             SELECT id, object_type, object_name, parent_table_name, semantic_description, tags, embedding_vector 
             FROM enriched_metadata 
-            WHERE embedding_vector IS NOT NULL AND embedding_model_version = %s
-        """, (MODEL_NAME,))
+            WHERE embedding_vector IS NOT NULL 
+              AND embedding_model_version = %s
+              AND NOT (object_type = 'table' AND object_name IN ('enriched_metadata', 'inferred_relationships'))
+              AND NOT (object_type = 'column' AND parent_table_name IN ('enriched_metadata', 'inferred_relationships'))
+        """
+        cursor.execute(query, (MODEL_NAME,))
         
         items_with_embeddings = cursor.fetchall()
         
