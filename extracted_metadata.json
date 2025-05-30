@@ -630,6 +630,14 @@
                     "is_nullable": true,
                     "is_primary_key": false,
                     "extra": ""
+                },
+                {
+                    "name": "stock_quantity",
+                    "data_type": "int",
+                    "column_type": "int",
+                    "is_nullable": true,
+                    "is_primary_key": false,
+                    "extra": ""
                 }
             ],
             "primary_keys": [
@@ -642,35 +650,40 @@
                     "product_name": "Expanded tangible toolset Tool",
                     "description": "Money author score everybody fall really easy. Career candidate until issue exist tough machine.",
                     "price": "356.95",
-                    "category": "Home Goods"
+                    "category": "Home Goods",
+                    "stock_quantity": 0
                 },
                 {
                     "product_id": 2,
                     "product_name": "Integrated 4thgeneration model Accessory",
                     "description": "Film add lawyer wall rich him. Stop only talk meeting environmental. Kind image discuss sign on identify.",
                     "price": "416.09",
-                    "category": "Toys"
+                    "category": "Toys",
+                    "stock_quantity": 0
                 },
                 {
                     "product_id": 3,
                     "product_name": "Fully-configurable national flexibility Gadget",
                     "description": "Apply save necessary car for industry. Stock account support everyone once number. Outside show ever beautiful.",
                     "price": "493.46",
-                    "category": "Sports"
+                    "category": "Sports",
+                    "stock_quantity": 0
                 },
                 {
                     "product_id": 4,
                     "product_name": "Grass-roots grid-enabled implementation Device",
                     "description": "Other series rock change industry note. Head turn PM decade.\nExample town federal spend lay happen hit. Anyone like detail car. Receive including need there talk affect open threat.",
                     "price": "405.90",
-                    "category": "Toys"
+                    "category": "Toys",
+                    "stock_quantity": 0
                 },
                 {
                     "product_id": 5,
                     "product_name": "Optimized asymmetric parallelism Gadget",
                     "description": "Amount behavior his design worker together. Paper table international garden.\nYeah vote leader eight. Might both pass. Fine money sport.\nForward within in plant.",
                     "price": "8.83",
-                    "category": "Books"
+                    "category": "Books",
+                    "stock_quantity": 0
                 }
             ]
         }
